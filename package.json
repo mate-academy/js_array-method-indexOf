@@ -1,8 +1,8 @@
 {
-  "name": "array-method-includes",
+  "name": "array-method-indexof",
   "version": "1.0.0",
-  "description": "Custom implementation of Array.prototype.includes()",
-  "main": "src/arrayMethodIncludes.js",
+  "description": "Custom implementation of Array.prototype.indexOf()",
+  "main": "src/arrayMethodIndexOf.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint **/*.js"
