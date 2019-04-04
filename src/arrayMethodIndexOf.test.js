@@ -5,7 +5,7 @@ const source = ['11', '22', '33', '', 44];
 applyCustomIndexOf();
 
 test('`indexOf2` is added to [].__proto__', () => {
-    expect(typeof [].indexOf2).toBe('function');
+  expect(typeof [].indexOf2).toBe('function');
 });
 
 test(`without valueToFind`, () => {
