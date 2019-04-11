@@ -20,8 +20,8 @@ function applyCustomIndexOf() {
 }
 const isEqualValues = (val1, val2) => {
   // checking is number for pass verification NaN === NaN
-  if (typeof val1 === 'number' && typeof val2 === 'number') {
-    return val1.toString() === val2.toString();
+  if (Number.isNaN(val1) && Number.isNaN(val2)) {
+    return true;
   } else {
     return val1 === val2;
   };
