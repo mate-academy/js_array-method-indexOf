@@ -5,8 +5,14 @@
  *
  */
 function applyCustomIndexOf() {
-  [].__proto__.indexOf2 = function() {
-    // write code here
+  [].__proto__.indexOf2 = function(elem, index) {
+    let array = this;
+    for (let i = index === undefined ? 0 : index; i < array.length; i++) {
+      if (array[i] === elem) {
+        return i;
+      }
+    }
+    return -1;
   };
 }
 
