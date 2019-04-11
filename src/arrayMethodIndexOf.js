@@ -7,14 +7,13 @@
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(token, index = 0) {
     if (index < 0) {
-      index = index + this.length;
-      for (index; index >= 0; index--) {
-        if (this[index] === token) return index;
+      for (let i = index + this.length; i >= 0; i--) {
+        if (this[i] === token) return i;
       }
       return -1;
     }
-    for (index; index < this.length; index++) {
-      if (this[index] === token) return index;
+    for (let i = index; i < this.length; i++) {
+      if (this[i] === token) return i;
     }
     return -1;
   };
