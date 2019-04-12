@@ -10,7 +10,7 @@ test('indexOf2 is added to [].__proto__', () => {
 });
 
 test(`indexOf2 doesn't call default indexOf`, () => {
-  expect([].indexOf2.toString().indexOf('.indexOf('))
+  expect([].indexOf2.toString().includes('.indexOf('))
     .toBe(false);
 });
 
