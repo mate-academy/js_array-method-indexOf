@@ -9,6 +9,11 @@ test('indexOf2 is added to [].__proto__', () => {
     .toBeInstanceOf(Function);
 });
 
+test(`indexOf2 doesn't call default indexOf`, () => {
+  expect([].indexOf2.toString().indexOf('.indexOf'))
+    .toBe(false);
+});
+
 test(`without valueToFind`, () => {
   expect(source.indexOf2())
     .toBe(-1);
