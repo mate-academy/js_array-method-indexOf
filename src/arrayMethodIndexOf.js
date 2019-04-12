@@ -5,7 +5,7 @@
  *
  */
 function applyCustomIndexOf() {
-  [].__proto__.indexOf2 = function(...args) {
+  [].__proto__.indexOf2 = function(searchElement, fromIndex) {
     // write code here
   };
 }
