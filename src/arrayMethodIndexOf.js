@@ -9,19 +9,10 @@ function applyCustomIndexOf() {
     if (fromIndex >= this.length) {
       return -1;
     }
-    let index = 0;
-    fromIndex < 0 ? index = 0 : index = fromIndex;
+    let index = fromIndex < 0 ? 0 : fromIndex;
     for (index; index < this.length; index++) {
-      if (typeof searchElement === typeof this[index]) {
-        if (searchElement === this[index]) {
-          return index;
-        } else if (isNaN(searchElement) && isNaN(this[index])) {
-          return index;
-        } else {
-          continue;
-        }
-      } else {
-        continue;
+      if (searchElement === this[index]) {
+        return index;
       }
     }
     return -1;
