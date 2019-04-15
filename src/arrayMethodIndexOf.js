@@ -6,7 +6,8 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    // write code here
+    return searchElement === undefined ? -1
+      : this.slice(fromIndex).findIndex(el => el === searchElement);
   };
 }
 
