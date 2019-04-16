@@ -5,15 +5,12 @@
  *
  */
 function applyCustomIndexOf() {
-  [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    // return searchElement === undefined ? -1
-    //   : this.slice(fromIndex).findIndex(el => Object.is(el, searchElement));
+  [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
     if (searchElement === undefined) {
       return -1;
     } else {
-      let arr = this.slice(fromIndex);
-      for (let i = 0; i < arr.length; i++) {
-        if (Object.is(arr[i], searchElement)) {
+      for (let i = fromIndex; i < this.length; i++) {
+        if (Object.is(this[i], searchElement)) {
           return i;
         }
       }
