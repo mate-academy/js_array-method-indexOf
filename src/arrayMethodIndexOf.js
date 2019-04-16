@@ -7,7 +7,7 @@
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElem, fromIndex = 0) {
     const isEqualValues = (val1, val2) =>
-      Number.isNaN(val1) ? Number.isNaN(val1) : val1 === val2;
+      Number.isNaN(val1) ? Number.isNaN(val2) : val1 === val2;
 
     if (fromIndex >= this.length) {
       return -1;
