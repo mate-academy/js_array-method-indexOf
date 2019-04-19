@@ -48,3 +48,8 @@ test(`[].indexOf2() = -1`, () => {
   expect([].indexOf2())
     .toBe(-1);
 });
+
+test(`indexOf2(44, 4) = 4 fromIndex 4`, () => {
+  expect(source.indexOf2(44, 4))
+    .toBe(4);
+});
