@@ -34,8 +34,8 @@ test(`should return -1 when only substring of the element is present`, () => {
     .toBe(-1);
 });
 
-// eslint-disable-next-line max-len
-test(`should return -1 when element is present before frontIndex position`, () => {
+test(`should return -1 
+  when element is present before frontIndex position`, () => {
   expect(source.indexOf2('11', 1))
     .toBe(-1);
 });
