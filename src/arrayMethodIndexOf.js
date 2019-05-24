@@ -9,18 +9,10 @@ function applyCustomIndexOf() {
     if (this.length === 0) {
       return -1;
     }
-    let fromIndexInt = fromIndex;
-    if (typeof fromIndex === 'undefined') {
-      fromIndexInt = 0;
-    }
-    let i = fromIndexInt;
-    while (true) {
+    const fromIndexInt = (typeof fromIndex === 'undefined') ? 0 : fromIndex;
+    for (let i = fromIndexInt; i < this.length; i++) {
       if (this[i] === searchElement) {
         return i;
-      }
-      i++;
-      if (i >= this.length) {
-        break;
       }
     }
     return -1;
