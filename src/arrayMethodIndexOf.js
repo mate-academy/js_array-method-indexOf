@@ -6,13 +6,13 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    let indexFrom = 0;
+    let startSearch = 0;
     if (!isNaN(fromIndex)) {
-      indexFrom = fromIndex;
+      startSearch = fromIndex;
     }
 
     const length = this.length;
-    for (let i = indexFrom; i < length; i++) {
+    for (let i = startSearch; i < length; i++) {
       if (this[i] === searchElement) {
         return i;
       }
