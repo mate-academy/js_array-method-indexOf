@@ -22,21 +22,4 @@ function applyCustomIndexOf() {
   };
 }
 
-/* applyCustomIndexOf()
-  *
-  * function showIndexOf() {
-  * const valueToFind = +document
-  *   .querySelector('input[name = "value-to-find"]').value;
-  * const startPosition = +document
-  *   .querySelector('input[name = "start-position"]').value;
-  *
-  * document.getElementsByTagName('p')[0].innerHTML = `
-  *   Postion of element is:
-  *   ${[0, '1', 2, 4, 3, '', undefined, NaN, 6]
-  *   .indexOf2(valueToFind, startPosition)}
-  * `;
-  *
-  * }
- */
-
 module.exports = applyCustomIndexOf;
