@@ -13,6 +13,7 @@ function applyCustomIndexOf() {
         return i;
       }
     }
+
     return -1;
   };
 }
