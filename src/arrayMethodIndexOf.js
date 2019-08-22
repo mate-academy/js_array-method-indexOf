@@ -6,11 +6,9 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    let i;
-
-    typeof fromIndex === 'number'
-      ? i = fromIndex
-      : i = 0;
+    let i = typeof fromIndex === 'number'
+      ? fromIndex
+      : 0;
 
     for (i; i < this.length; i++) {
       if (this[i] === searchElement) {
