@@ -11,7 +11,7 @@ function applyCustomIndexOf() {
     // }
 
     // if (fromIndex < 0) {
-    //   return -1;
+    //   fromIndex = 0;
     // }
 
     for (let i = fromIndex; i < this.length; i++) {
