@@ -11,8 +11,13 @@ function applyCustomIndexOf() {
     }
 
     let result = -1;
+    let i = 0;
 
-    for (let i = fromIndex || 0; i < this.length; i++) {
+    if (fromIndex !== undefined) {
+      i = fromIndex > 0 ? fromIndex : this.length - fromIndex;
+    }
+
+    for (i; i < this.length; i++) {
       if (this[i] === searchElement) {
         result = i;
         break;
