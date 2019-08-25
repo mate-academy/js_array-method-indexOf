@@ -14,7 +14,7 @@ function applyCustomIndexOf() {
     let i = 0;
 
     if (fromIndex !== undefined) {
-      i = fromIndex > 0 ? fromIndex : this.length - fromIndex;
+      i = fromIndex > 0 ? fromIndex : this.length + fromIndex;
     }
 
     for (i; i < this.length; i++) {
