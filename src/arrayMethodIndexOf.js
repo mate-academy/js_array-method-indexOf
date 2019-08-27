@@ -10,7 +10,6 @@ function applyCustomIndexOf() {
       return -1;
     }
 
-    let result = -1;
     let i = 0;
 
     if (fromIndex !== undefined) {
@@ -19,12 +18,11 @@ function applyCustomIndexOf() {
 
     for (i; i < this.length; i++) {
       if (this[i] === searchElement) {
-        result = i;
-        break;
+        return i;
       }
     }
 
-    return result;
+    return -1;
   };
 }
 
