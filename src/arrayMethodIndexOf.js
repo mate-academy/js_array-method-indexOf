@@ -6,7 +6,7 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    let index = fromIndex === undefined ? 0 : fromIndex;
+    let index = fromIndex || 0;
 
     for (index; index < this.length; index++) {
       if (this[index] === searchElement) {
