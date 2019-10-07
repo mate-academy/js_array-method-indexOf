@@ -5,11 +5,8 @@
  *
  */
 function applyCustomIndexOf() {
-  [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    let i = 0;
-    if (fromIndex) {
-      i = fromIndex;
-    }
+  [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
+    let i = fromIndex;
 
     for (i; i < this.length; i++) {
       if (searchElement === this[i]) {
