@@ -6,7 +6,7 @@
  */
 function applyCustomIndexOf() {
   Array.prototype.indexOf2 = function(searchElement, fromIndex = 0) {
-    for (let i = 0; i < this.length; i++) {
+    for (let i = fromIndex; i < this.length; i++) {
       if (i >= fromIndex && this[i] === searchElement) {
         return i;
       }
