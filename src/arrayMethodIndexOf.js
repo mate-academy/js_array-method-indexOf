@@ -6,13 +6,12 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    return this.findIndex((item, index) => {
-      if (fromIndex) {
-        return index >= fromIndex && item === searchElement;
-      } else {
-        return item === searchElement;
+    for (let i = fromIndex | 0; i < this.length; i++) {
+      if (this[i] === searchElement) {
+        return i;
       }
-    });
+    }
+    return -1;
   };
 }
 
