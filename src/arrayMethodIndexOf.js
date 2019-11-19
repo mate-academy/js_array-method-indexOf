@@ -6,12 +6,8 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
-    if (searchElement === undefined) {
-      return -1;
-    }
-
-    if (fromIndex >= 0) {
-      for (let i = fromIndex; i < this.length; i++) {
+    if (fromIndex < 0) {
+      for (let i = this.length + fromIndex; i < this.length; i++) {
         if (Object.is(searchElement, this[i])
           || (isNaN(searchElement)
             && isNaN(searchElement) === isNaN(this[i]))) {
@@ -19,7 +15,7 @@ function applyCustomIndexOf() {
         }
       }
     } else {
-      for (let i = this.length + fromIndex; i < this.length; i++) {
+      for (let i = fromIndex; i < this.length; i++) {
         if (Object.is(searchElement, this[i])
           || (isNaN(searchElement)
             && isNaN(searchElement) === isNaN(this[i]))) {
