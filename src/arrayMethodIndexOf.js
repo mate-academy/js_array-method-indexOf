@@ -6,17 +6,16 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
+    let from = fromIndex;
     if (this.length === 0 || fromIndex === this.length) {
       return -1;
     }
     if (fromIndex < 0 && (fromIndex + this.length) > 0) {
-      // eslint-disable-next-line no-param-reassign
-      fromIndex = this.length + fromIndex;
+      from = this.length + fromIndex;
     } else if (fromIndex < 0 && (fromIndex + this.length) < 0) {
-      // eslint-disable-next-line no-param-reassign
-      fromIndex = 0;
+      from = 0;
     }
-    for (let i = fromIndex; i < this.length; i++) {
+    for (let i = from; i < this.length; i++) {
       if (searchElement === this[i]) {
         return i;
       }
