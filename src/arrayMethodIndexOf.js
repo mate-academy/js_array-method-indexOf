@@ -9,7 +9,7 @@ function applyCustomIndexOf() {
     let result = -1;
     let index = fromIndex;
     if (index < 0) {
-      index = (this.length - 1) + index;
+      index = this.length + index;
     }
     for (let i = index; i < this.length; i++) {
       if (this[i] === searchElement) {
