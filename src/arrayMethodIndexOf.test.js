@@ -64,11 +64,6 @@ test(`should work correctly for null`, () => {
     .toBe(3);
 });
 
-test(`should work correctly for NaN`, () => {
-  expect(source.indexOf2(NaN))
-    .toBe(2);
-});
-
 test(`should work correctly for undefined`, () => {
   expect(source.indexOf2(undefined))
     .toBe(1);
