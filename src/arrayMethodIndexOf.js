@@ -5,6 +5,10 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
+    if (arguments === undefined) {
+      return false
+    }
+
     if (arguments.length === 0) {
       return -1;
     }
