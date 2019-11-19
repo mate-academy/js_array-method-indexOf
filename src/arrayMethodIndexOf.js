@@ -6,25 +6,17 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
-    if (searchElement === undefined) {
+    if (arguments.length === 0) {
       return -1;
     }
 
-    if (fromIndex >= 0) {
-      for (let i = fromIndex; i < this.length; i++) {
-        if (searchElement === this[i]
-          || (isNaN(searchElement)
-            && isNaN(searchElement) === isNaN(this[i]))) {
-          return i;
-        }
-      }
-    } else {
-      for (let i = this.length + fromIndex; i < this.length; i++) {
-        if (searchElement === this[i]
-          || (isNaN(searchElement)
-            && isNaN(searchElement) === isNaN(this[i]))) {
-          return i;
-        }
+    const search = fromIndex >= 0 ? fromIndex : this.length + fromIndex;
+
+    for (let i = search; i < this.length; i++) {
+      if (searchElement === this[i]
+        || (isNaN(searchElement)
+          && Object.is(searchElement, this[i]))) {
+        return i;
       }
     }
 
