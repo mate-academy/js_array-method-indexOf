@@ -54,3 +54,13 @@ test(`should return element when it's on a fromIndex position`, () => {
   expect(source.indexOf2(44, 4))
     .toBe(4);
 });
+
+test(`should return element when it's on a fromIndex 0`, () => {
+  expect(source.indexOf2(44, -75))
+    .toBe(4);
+});
+
+test(`should return element when it's on a fromIndex 3`, () => {
+  expect(source.indexOf2(44, -2))
+    .toBe(4);
+});
