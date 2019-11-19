@@ -16,7 +16,6 @@ function applyCustomIndexOf() {
 
     for (let i = fromIndex; i < this.length; i++) {
       if (searchElement === this[i]) {
-        // должен вернуть индекс
         return i;
       }
       if (isNaN(searchElement) && isNaN(this[i]) === isNaN(searchElement)) {
