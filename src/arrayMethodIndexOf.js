@@ -8,7 +8,8 @@ function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
     let from = fromIndex;
     if (this.length === 0
-      || fromIndex === this.length) {
+      || fromIndex === this.length
+      || arguments.length === 0) {
       return -1;
     }
     if (from < 0) {
