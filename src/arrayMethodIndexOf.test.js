@@ -1,7 +1,7 @@
 'use strict';
 
 const applyCustomIndexOf = require('./arrayMethodIndexOf');
-const source = ['11', '22', '33', '', 44];
+const source = ['11', undefined, NaN, null, '11', 44];
 applyCustomIndexOf();
 
 test('indexOf2 is added to [].__proto__', () => {
@@ -24,43 +24,56 @@ test(`should return elements index when it is present`, () => {
     .toBe(0);
 });
 
-test(`should return -1 when element of a different type is present`, () => {
+test(`should not compare elements with ==`, () => {
   expect(source.indexOf2(11))
     .toBe(-1);
 });
 
-test(`should return -1 when only substring of the element is present`, () => {
+test(`should not compare strings partly`, () => {
   expect(source.indexOf2('1'))
     .toBe(-1);
 });
 
-test(`should return -1
-  when element is present before frontIndex position`, () => {
+test(`should return first found index after frontIndex`, () => {
   expect(source.indexOf2('11', 1))
+    .toBe(4);
+});
+
+test(`should start search from fromIndex`, () => {
+  expect(source.indexOf2('11', 4))
+    .toBe(4);
+});
+
+test(`should return -1 is does not exist after frontIndex`, () => {
+  expect(source.indexOf2('11', 5))
     .toBe(-1);
 });
 
-test(`should return position of empty string when it is present`, () => {
-  expect(source.indexOf2(''))
+test(`should accept negative frontIndex`, () => {
+  expect(source.indexOf2('11', -3))
+    .toBe(4);
+});
+
+test(`should search from start for big negative frontIndex`, () => {
+  expect(source.indexOf2('11', -999))
+    .toBe(0);
+});
+
+test(`should work correctly for null`, () => {
+  expect(source.indexOf2(null))
     .toBe(3);
 });
 
+test(`should work correctly for NaN`, () => {
+  expect(source.indexOf2(NaN))
+    .toBe(2);
+});
+test(`should work correctly for undefined`, () => {
+  expect(source.indexOf2(undefined))
+    .toBe(1);
+});
+
 test(`should return -1 when called for empty array`, () => {
-  expect([].indexOf2())
+  expect([].indexOf2('11'))
     .toBe(-1);
-});
-
-test(`should return element when it's on a fromIndex position`, () => {
-  expect(source.indexOf2(44, 4))
-    .toBe(4);
-});
-
-test(`should return element when it's on a fromIndex 0`, () => {
-  expect(source.indexOf2(44, -75))
-    .toBe(4);
-});
-
-test(`should return element when it's on a fromIndex 3`, () => {
-  expect(source.indexOf2(44, -2))
-    .toBe(4);
 });
