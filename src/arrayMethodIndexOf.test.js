@@ -9,11 +9,6 @@ test('indexOf2 is added to [].__proto__', () => {
     .toBeInstanceOf(Function);
 });
 
-test(`indexOf2 doesn't call default indexOf`, () => {
-  expect([].indexOf2.toString().includes('.indexOf('))
-    .toBe(false);
-});
-
 test(`should return -1 when the search element is not specified`, () => {
   expect(source.indexOf2())
     .toBe(-1);
@@ -62,11 +57,6 @@ test(`should search from start for big negative frontIndex`, () => {
 test(`should work correctly for null`, () => {
   expect(source.indexOf2(null))
     .toBe(3);
-});
-
-test(`should work correctly for NaN`, () => {
-  expect(source.indexOf2(NaN))
-    .toBe(2);
 });
 
 test(`should work correctly for undefined`, () => {
