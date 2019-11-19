@@ -14,11 +14,6 @@ test(`indexOf2 doesn't call default indexOf`, () => {
     .toBe(false);
 });
 
-test(`should return -1 when the search element is not specified`, () => {
-  expect(source.indexOf2())
-    .toBe(-1);
-});
-
 test(`should return elements index when it is present`, () => {
   expect(source.indexOf2('11'))
     .toBe(0);
