@@ -22,11 +22,7 @@ function applyCustomIndexOf() {
     }
 
     for (let i = start; i < this.length; i++) {
-      if (this[i] === searchElement) {
-        return i;
-      }
-
-      if (isNaN(this[i]) && isNaN(searchElement) && this[i] !== undefined) {
+      if (Object.is(this[i], searchElement)) {
         return i;
       }
     }
