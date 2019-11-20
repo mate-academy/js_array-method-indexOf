@@ -14,11 +14,13 @@ function applyCustomIndexOf() {
       return -1;
     }
 
-    for (let i = fromIndex; i < this.length; i++) {
-      if (searchElement === this[i]) {
-        return i;
-      }
-      if (isNaN(searchElement) && isNaN(this[i]) === isNaN(searchElement)) {
+    let startIndex = fromIndex;
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+
+    for (let i = startIndex; i < this.length; i++) {
+      if (Object.is(searchElement, this[i])) {
         return i;
       }
     }
