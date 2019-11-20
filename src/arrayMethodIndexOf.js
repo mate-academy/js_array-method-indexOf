@@ -5,7 +5,9 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
-    if (this.length === 0 || arguments.length === 0) {
+    if (this.length === 0
+      || arguments.length === 0
+      || fromIndex >= this.length) {
       return -1;
     }
 
@@ -17,8 +19,8 @@ function applyCustomIndexOf() {
       start = fromIndex;
     }
 
-    if (fromIndex >= this.length) {
-      return -1;
+    if (start < 0) {
+      start = 0;
     }
 
     for (let i = start; i < this.length; i++) {
