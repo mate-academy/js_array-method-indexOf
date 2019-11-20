@@ -44,8 +44,13 @@ test(`should start search from fromIndex`, () => {
     .toBe(4);
 });
 
-test(`should return -1 is does not exist after frontIndex`, () => {
+test(`should return -1 if does not exist after frontIndex`, () => {
   expect(source.indexOf2('11', 5))
+    .toBe(-1);
+});
+
+test(`should return -1 for too large frontIndex`, () => {
+  expect(source.indexOf2('11', 999))
     .toBe(-1);
 });
 
@@ -57,6 +62,11 @@ test(`should accept negative frontIndex`, () => {
 test(`should search from start for big negative frontIndex`, () => {
   expect(source.indexOf2('11', -999))
     .toBe(0);
+});
+
+test(`should search from start for big negative frontIndex`, () => {
+  expect(source.indexOf2(undefined, -999))
+    .toBe(1);
 });
 
 test(`should work correctly for null`, () => {
