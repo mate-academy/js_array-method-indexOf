@@ -15,6 +15,8 @@ function applyCustomIndexOf() {
 
     if (fromIndex === undefined) {
       beginingIndex = 0;
+    } else if (beginingIndex >= this.length) {
+      return -1;
     } else if (fromIndex < 0) {
       beginingIndex = this.length + fromIndex < 0 ? 0 : this.length + fromIndex;
     } else {
