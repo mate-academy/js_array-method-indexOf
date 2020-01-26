@@ -6,8 +6,31 @@
  * also work for negative fromIndex handling -2 as a pre last element.
  */
 function applyCustomIndexOf() {
-  [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    // write code here
+  [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
+    let loopStart = fromIndex;
+
+    if (this.length === 0 || fromIndex >= this.length
+      || arguments.length < 1) {
+      return -1;
+    }
+
+    if (loopStart < 0) {
+      loopStart = this.length + loopStart + 1;
+    }
+
+    if (loopStart < 0) {
+      loopStart = 0;
+    }
+
+    for (let i = loopStart; i <= this.length; i += 1) {
+      if (this[i] === searchElement || (typeof searchElement === 'undefined'
+      && typeof this[i] === 'undefined') || (Number.isNaN(searchElement)
+      && Number.isNaN(this[i]))) {
+        return i;
+      }
+    }
+
+    return -1;
   };
 }
 
