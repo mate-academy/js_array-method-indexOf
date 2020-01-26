@@ -5,13 +5,10 @@
  * NaN and undefined and return -1 if searchElement is not given. It should
  * also work for negative fromIndex handling -2 as a pre last element.
  */
+
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    if (arguments.length < 1) {
-      return -1;
-    }
-
-    if (-fromIndex > this.length) {
+    if (-fromIndex > this.length || arguments.length === 1) {
       for (let i = 0; i < this.length; i++) {
         if (this[i] === searchElement) {
           return i;
@@ -22,14 +19,6 @@ function applyCustomIndexOf() {
     if (Number.isNaN(searchElement)) {
       for (let i = 0; i < this.length; i++) {
         if (Number.isNaN(this[i])) {
-          return i;
-        }
-      }
-    }
-
-    if (fromIndex === undefined) {
-      for (let i = 0; i < this.length; i++) {
-        if (this[i] === searchElement) {
           return i;
         }
       }
