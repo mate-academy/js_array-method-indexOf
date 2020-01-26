@@ -7,7 +7,45 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    // write code here
+    let startIndex = fromIndex || 0;
+
+    if (startIndex <= -this.length) {
+      startIndex = 0;
+    }
+
+    if (startIndex >= this.length) {
+      return -1;
+    }
+
+    if (arguments.length === 0) {
+      return -1;
+    }
+
+    if (startIndex >= 0) {
+      for (let i = startIndex; i < this.length; i++) {
+        if (this[i] === searchElement) {
+          return i;
+        }
+      }
+    }
+
+    if (startIndex < 0) {
+      for (let i = this.length + startIndex; i < this.length; i++) {
+        if (this[i] === searchElement) {
+          return i;
+        }
+      }
+    }
+
+    if (Number.isNaN(searchElement)) {
+      for (let i = startIndex; i < this.length; i++) {
+        if (Number.isNaN(this[i])) {
+          return i;
+        }
+      }
+    }
+
+    return -1;
   };
 }
 
