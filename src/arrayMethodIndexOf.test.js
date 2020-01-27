@@ -2,6 +2,7 @@
 
 const applyCustomIndexOf = require('./arrayMethodIndexOf');
 const source = ['11', undefined, NaN, null, '11', 44];
+
 applyCustomIndexOf();
 
 test('indexOf2 is added to [].__proto__', () => {
