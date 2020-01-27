@@ -15,16 +15,7 @@ function applyCustomIndexOf() {
       return -1;
     }
 
-    let findValue = searchElement;
     let indexFrom = fromIndex || 0;
-
-    if (searchElement === null) {
-      findValue = null;
-    }
-
-    if (searchElement === undefined) {
-      findValue = undefined;
-    }
 
     if (Math.sign(indexFrom) < 0) {
       indexFrom = this.length - Math.abs(indexFrom);
@@ -35,11 +26,11 @@ function applyCustomIndexOf() {
     }
 
     for (let i = indexFrom; i < this.length; i++) {
-      if (Number.isNaN(this[i]) && Number.isNaN(findValue)) {
+      if (Number.isNaN(this[i]) && Number.isNaN(searchElement)) {
         return i;
       }
 
-      if (this[i] === findValue) {
+      if (this[i] === searchElement) {
         return i;
       }
     }
