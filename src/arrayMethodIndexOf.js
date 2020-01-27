@@ -7,7 +7,7 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    if (this.length === 0) {
+    if (!this.length) {
       return -1;
     }
 
