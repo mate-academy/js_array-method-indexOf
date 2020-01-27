@@ -7,15 +7,7 @@
  */
 
 function applyCustomIndexOf() {
-  [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    if (-fromIndex > this.length || arguments.length === 1) {
-      for (let i = 0; i < this.length; i++) {
-        if (this[i] === searchElement) {
-          return i;
-        }
-      }
-    }
-
+  [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
     if (Number.isNaN(searchElement)) {
       for (let i = 0; i < this.length; i++) {
         if (Number.isNaN(this[i])) {
@@ -24,19 +16,19 @@ function applyCustomIndexOf() {
       }
     }
 
-    if (fromIndex > 0) {
-      for (let i = fromIndex; i < this.length; i++) {
-        if (this[i] === searchElement) {
-          return i;
-        }
-      }
+    let startIndex;
+
+    if (this.length + fromIndex < 0 || arguments.length === 1) {
+      startIndex = 0;
+    } else if (fromIndex < 0) {
+      startIndex = this.length + fromIndex;
+    } else if (fromIndex > 0) {
+      startIndex = fromIndex;
     }
 
-    if (fromIndex < 0) {
-      for (let i = this.length + fromIndex; i < this.length; i++) {
-        if (this[i] === searchElement) {
-          return i;
-        }
+    for (let i = startIndex; i < this.length; i++) {
+      if (this[i] === searchElement) {
+        return i;
       }
     }
 
