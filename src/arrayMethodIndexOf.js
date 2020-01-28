@@ -6,59 +6,24 @@
  * also work for negative fromIndex handling -2 as a pre last element.
  */
 function applyCustomIndexOf() {
-  [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    if (arguments.length === 0) {
+  [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
+    if (!arguments.length || fromIndex >= this.length) {
       return -1;
     }
 
-    if (searchElement === undefined) {
-      for (let i = 0; i < this.length; i++) {
-        if (this[i] === undefined) {
-          return i;
-        }
-      }
-    }
-
-    if (Math.abs(fromIndex) > this.length && fromIndex < 0) {
-      for (let i = 0; i < this.length; i++) {
-        if (this[i] === searchElement) {
-          return i;
-        }
-      }
-    }
-
-    if (isNaN(searchElement)) {
-      for (let i = 0; i < this.length; i++) {
-        if (Number.isNaN(this[i])) {
-          return i;
-        }
-      }
-    }
+    let searchFrom = fromIndex;
 
     if (fromIndex < 0) {
-      const negIndex = this.length + fromIndex;
-
-      for (let i = this.length - 1; i > negIndex - 1; i--) {
-        if (this[i] === searchElement) {
-          return i;
-        }
-      }
-
-      return -1;
+      searchFrom = this.length + fromIndex;
     }
 
-    if (fromIndex !== undefined) {
-      for (let i = fromIndex; i < this.length; i++) {
-        if (this[i] === searchElement) {
-          return i;
-        }
-      }
-
-      return -1;
+    if (searchFrom < 0) {
+      searchFrom = 0;
     }
 
-    for (let i = 0; i < this.length; i++) {
-      if (this[i] === searchElement) {
+    for (let i = searchFrom; i < this.length; i++) {
+      if (this[i] === searchElement
+        || (Number.isNaN(searchElement) && Number.isNaN(this[i]))) {
         return i;
       }
     }
