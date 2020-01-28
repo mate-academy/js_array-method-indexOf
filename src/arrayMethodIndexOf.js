@@ -9,26 +9,24 @@ function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
     let startIndex = fromIndex;
 
+    if (fromIndex >= 0) {
+      startIndex = fromIndex;
+    } else {
+      startIndex = this.length + startIndex;
+    }
+
     if (startIndex <= -this.length) {
       startIndex = 0;
     }
 
-    if (arguments.length === 0) {
+    if (!arguments.length) {
       return -1;
     }
 
-    if (startIndex >= 0) {
-      for (let i = startIndex; i < this.length; i++) {
-        if (this[i] === searchElement
-          || (Number.isNaN(searchElement) && Number.isNaN(this[i]))) {
-          return i;
-        }
-      }
-    } else {
-      for (let i = this.length + startIndex; i < this.length; i++) {
-        if (this[i] === searchElement) {
-          return i;
-        }
+    for (let i = startIndex; i < this.length; i++) {
+      if (this[i] === searchElement
+        || (Number.isNaN(searchElement) && Number.isNaN(this[i]))) {
+        return i;
       }
     }
 
