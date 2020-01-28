@@ -26,9 +26,12 @@ function applyCustomIndexOf() {
     for (let i = start; i <= this.length; i += 1) {
       if (this[i] === searchElement
         || (typeof searchElement === 'undefined'
-          && typeof this[i] === 'undefined')
+          && typeof this[i] === 'undefined'
+        )
         || (Number.isNaN(searchElement)
-          && Number.isNaN(this[i]))) {
+          && Number.isNaN(this[i])
+        )
+      ) {
         return i;
       }
     }
