@@ -23,7 +23,8 @@ function applyCustomIndexOf() {
 
     for (i; i < this.length; i++) {
       if ((this[i] === searchElement)
-      || (Number.isNaN(this[i]) && Number.isNaN(searchElement))) {
+        || (Number.isNaN(this[i])
+        && Number.isNaN(searchElement))) {
         return i;
       }
     }
