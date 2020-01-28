@@ -17,20 +17,13 @@ function applyCustomIndexOf() {
       startIndex = 0;
     }
 
-    if (Math.sign(startIndex) === -1) {
+    if (startIndex < 0) {
       startIndex = this.length + startIndex;
     }
 
-    if (Number.isNaN(searchElement)) {
-      for (let i = startIndex; i < this.length; i++) {
-        if (Number.isNaN(this[i])) {
-          return i;
-        }
-      }
-    }
-
     for (let i = startIndex; i < this.length; i++) {
-      if (this[i] === searchElement) {
+      if (this[i] === searchElement
+        || (Number.isNaN(this[i]) && (Number.isNaN(searchElement)))) {
         return i;
       }
     }
