@@ -11,9 +11,9 @@ function applyCustomIndexOf() {
       return -1;
     }
 
-    let beginingIndex;
+    let beginingIndex = fromIndex;
 
-    if (beginingIndex >= this.length) {
+    if (fromIndex >= this.length) {
       return -1;
     } else if (fromIndex < 0) {
       beginingIndex = this.length + fromIndex < 0 ? 0 : this.length + fromIndex;
@@ -23,9 +23,7 @@ function applyCustomIndexOf() {
 
     while (beginingIndex < this.length) {
       if (searchElement === this[beginingIndex]
-          || (isNaN(searchElement)
-              && isNaN(this[beginingIndex])
-              && this[beginingIndex] !== undefined
+          || (isNaN(searchElement) && Number.isNaN(this[beginingIndex])
           )
       ) {
         return beginingIndex;
