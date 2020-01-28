@@ -6,20 +6,20 @@
  * also work for negative fromIndex handling -2 as a pre last element.
  */
 function applyCustomIndexOf() {
-  [].__proto__.indexOf2 = function(searchElement, fromIndex) {
+  [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
     let index;
     const mainArr = this;
-    const emptyArg = [...arguments];
 
-    if (emptyArg.length === 0) {
+    if (![...arguments].length) {
       return -1;
     }
 
     if (fromIndex === Math.abs(fromIndex)) {
-      index = fromIndex || 0;
+      index = fromIndex;
     } else {
-      index = Math.abs(fromIndex) < mainArr.length ? mainArr.length
-        - Math.abs(fromIndex) : 0;
+      index = Math.abs(fromIndex) < mainArr.length
+        ? mainArr.length - Math.abs(fromIndex)
+        : 0;
     }
 
     for (let i = index; i < mainArr.length; i++) {
