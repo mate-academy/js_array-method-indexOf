@@ -22,9 +22,9 @@ function applyCustomIndexOf() {
     }
 
     for (let index = searchFrom; index < this.length; index++) {
-      if (
-        searchElement === this[index]
-         || (Number.isNaN(searchElement) && Number.isNaN(this[index]))) {
+      if (searchElement === this[index]
+         || (Number.isNaN(searchElement) && Number.isNaN(this[index]))
+      ) {
         return index;
       }
     }
