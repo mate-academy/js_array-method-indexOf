@@ -9,7 +9,8 @@ function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
     let start = fromIndex;
 
-    if (this.length === 0 || fromIndex >= this.length
+    if (this.length === 0
+      || fromIndex >= this.length
       || arguments.length < 1) {
       return -1;
     }
@@ -23,9 +24,11 @@ function applyCustomIndexOf() {
     }
 
     for (let i = start; i <= this.length; i += 1) {
-      if (this[i] === searchElement || (typeof searchElement === 'undefined'
-      && typeof this[i] === 'undefined') || (Number.isNaN(searchElement)
-      && Number.isNaN(this[i]))) {
+      if (this[i] === searchElement
+        || (typeof searchElement === 'undefined'
+        && typeof this[i] === 'undefined')
+        || (Number.isNaN(searchElement)
+        && Number.isNaN(this[i]))) {
         return i;
       }
     }
