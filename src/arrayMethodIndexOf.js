@@ -8,22 +8,21 @@
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
     let index;
-    const mainArr = this;
 
-    if (![...arguments].length) {
+    if (!arguments.length) {
       return -1;
     }
 
     if (fromIndex === Math.abs(fromIndex)) {
       index = fromIndex;
     } else {
-      index = Math.abs(fromIndex) < mainArr.length
-        ? mainArr.length - Math.abs(fromIndex)
+      index = Math.abs(fromIndex) < this.length
+        ? this.length - Math.abs(fromIndex)
         : 0;
     }
 
-    for (let i = index; i < mainArr.length; i++) {
-      if (Object.is(mainArr[i], searchElement)) {
+    for (let i = index; i < this.length; i++) {
+      if (Object.is(this[i], searchElement)) {
         return i;
       }
     }
