@@ -2,6 +2,7 @@
 
 const applyCustomIndexOf = require('./arrayMethodIndexOf');
 const source = ['11', undefined, NaN, null, '11', 44];
+
 applyCustomIndexOf();
 
 test('indexOf2 is added to [].__proto__', () => {
@@ -79,7 +80,7 @@ test(`should work correctly for NaN`, () => {
     .toBe(2);
 });
 
-test(`should work correctly for undefined`, () => {
+test.only(`should work correctly for undefined`, () => {
   expect(source.indexOf2(undefined))
     .toBe(1);
 });
