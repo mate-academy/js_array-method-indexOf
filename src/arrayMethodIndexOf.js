@@ -19,21 +19,14 @@ function applyCustomIndexOf() {
 
     if (startIndex >= 0) {
       for (let i = startIndex; i < this.length; i++) {
-        if (this[i] === searchElement) {
+        if (this[i] === searchElement
+          || (Number.isNaN(searchElement) && Number.isNaN(this[i]))) {
           return i;
         }
       }
     } else {
       for (let i = this.length + startIndex; i < this.length; i++) {
         if (this[i] === searchElement) {
-          return i;
-        }
-      }
-    }
-
-    if (Number.isNaN(searchElement)) {
-      for (let i = startIndex; i < this.length; i++) {
-        if (Number.isNaN(this[i])) {
           return i;
         }
       }
