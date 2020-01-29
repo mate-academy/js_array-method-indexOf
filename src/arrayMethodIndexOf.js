@@ -7,19 +7,13 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
-    if (!arguments.length) {
+    if (!arguments.length || fromIndex >= this.length) {
       return -1;
     }
 
-    let beginingIndex = fromIndex;
-
-    if (fromIndex >= this.length) {
-      return -1;
-    } else if (fromIndex < 0) {
-      beginingIndex = this.length + fromIndex < 0 ? 0 : this.length + fromIndex;
-    } else {
-      beginingIndex = fromIndex;
-    }
+    let beginingIndex = fromIndex < 0
+      ? this.length + fromIndex < 0 ? 0 : this.length + fromIndex
+      : fromIndex;
 
     while (beginingIndex < this.length) {
       if (searchElement === this[beginingIndex]
