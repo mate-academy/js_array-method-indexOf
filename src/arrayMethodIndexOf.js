@@ -10,24 +10,26 @@ function applyCustomIndexOf() {
     // write code here
     let withIndex = fromIndex;
 
-    if ((Math.abs(fromIndex) >= this.length && fromIndex < 0)
-      || fromIndex === undefined) {
-      withIndex = 0;
-    } else if (fromIndex >= this.length) {
-      return -1;
-    } else if (Math.abs(fromIndex) < this.length && fromIndex < 0) {
-      withIndex = this.length - Math.abs(fromIndex) - 1;
+    if (fromIndex < 0) {
+      withIndex = fromIndex + this.length;
     }
 
-    if (this.length === 0) {
+    if (fromIndex === undefined
+      || fromIndex === null
+      || Number.isNaN(fromIndex)
+      || (searchElement === undefined && withIndex < 0)) {
+      withIndex = 0;
+    } else if (fromIndex < 0) {
+      withIndex = fromIndex + this.length;
+    }
+
+    if (this.length === 0 || withIndex >= this.length) {
       return -1;
     }
 
     for (let i = withIndex; i < this.length; i++) {
-      if (typeof this[i] === 'number'
-        && isNaN(this[i])
-        && typeof searchElement === 'number'
-        && isNaN(searchElement)) {
+      if (Number.isNaN(this[i])
+        && Number.isNaN(searchElement)) {
         return i;
       } else if (this[i] === searchElement) {
         return i;

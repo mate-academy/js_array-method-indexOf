@@ -60,7 +60,7 @@ test(`should accept negative frontIndex`, () => {
 });
 
 test(`should search from start for big negative frontIndex`, () => {
-  expect(source.indexOf2('11', -999))
+  expect(source.indexOf2('11', -996))
     .toBe(0);
 });
 
