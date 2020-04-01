@@ -5,7 +5,7 @@
   "main": "src/arrayMethodIndexOf.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint **/*.js"
+    "lint": "eslint **/arrayMethodIndexOf.js"
   },
   "author": "Mate academy",
   "license": "GPL-3.0",
@@ -20,7 +20,7 @@
   },
   "lint-staged": {
     "linters": {
-      "*.js": [
+      "arrayMethodIndexOf.js": [
         "eslint",
         "git add"
       ]
