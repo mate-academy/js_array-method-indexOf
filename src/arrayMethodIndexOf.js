@@ -19,7 +19,7 @@ function applyCustomIndexOf() {
 
     for (let i = searchIndex; i < this.length; i++) {
       if (this[i] === searchElement
-        || ('' + this[i] === 'NaN' && '' + searchElement === 'NaN')) {
+        || (Number.isNaN(this[i]) && Number.isNaN(searchElement))) {
         return i;
       }
       continue;
