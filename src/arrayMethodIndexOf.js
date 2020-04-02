@@ -13,6 +13,10 @@ function applyCustomIndexOf() {
       return -1;
     }
 
+    if (!arguments.length) {
+      return -1;
+    }
+
     if (fromIndex < 0) {
       startIndex = this.length + fromIndex;
 
