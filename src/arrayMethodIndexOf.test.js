@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable */
 const applyCustomIndexOf = require('./arrayMethodIndexOf');
 const source = ['11', undefined, NaN, null, '11', 44];
 applyCustomIndexOf();
