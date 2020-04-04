@@ -8,6 +8,22 @@
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex) {
     // write code here
+    let i = fromIndex;
+
+    if (fromIndex >= this.length) {
+      return -1;
+    }
+
+    if (fromIndex < 0) {
+    i = Math.max(this.length - Math.abs(i), 0);
+    }
+
+    for (i; i < this.length; i++) {
+      if ( Object.is(this[i],searchElement)) {
+        return i;
+      }
+    }
+    return -1;
   };
 }
 
