@@ -8,21 +8,31 @@
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex) {
     // write code here
-    let i = fromIndex;
+    let startIndex = fromIndex || 0;
+    const endIndex = this.length;
 
-    if (fromIndex >= this.length) {
+    if (arguments.length === 0) {
       return -1;
     }
 
     if (fromIndex < 0) {
-    i = Math.max(this.length - Math.abs(i), 0);
+      startIndex = endIndex + fromIndex;
     }
 
-    for (i; i < this.length; i++) {
-      if ( Object.is(this[i],searchElement)) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+
+    for (let i = startIndex; i <= endIndex; i++) {
+      if (this[i] === searchElement) {
+        return i;
+      }
+
+      if (Number.isNaN(searchElement) && Number.isNaN(this[i])) {
         return i;
       }
     }
+
     return -1;
   };
 }
