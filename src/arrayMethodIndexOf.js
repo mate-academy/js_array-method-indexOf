@@ -9,11 +9,11 @@ function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
     let startIndex = fromIndex;
 
-    if (fromIndex < 0) {
+    if (startIndex < 0) {
       startIndex += this.length;
     }
 
-    if (fromIndex < 0) {
+    if (startIndex < 0) {
       startIndex = 0;
     }
 
