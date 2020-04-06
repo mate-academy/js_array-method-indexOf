@@ -25,7 +25,7 @@ function applyCustomIndexOf() {
       startIndex = 0;
     }
 
-    for (let i = startIndex; i < this.length - 1; i++) {
+    for (let i = startIndex; i < this.length; i++) {
       if (Object.is(this[i], searchElement)) {
         return i;
       }
