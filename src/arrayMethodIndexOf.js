@@ -14,9 +14,8 @@ function applyCustomIndexOf() {
     if(fromIndex < 0) {fromIndex = 0};
 
     for(let i = fromIndex; i <= this.length; i++) {
-      if(searchElement === this[i]) {founded[0] = i; break};
+      if(Object.is(searchElement, this[i])) {founded[0] = i; break};
     }    
-
 
 
     if (founded[0] === undefined) {founded[0] = -1}
