@@ -7,39 +7,30 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
-    if (fromIndex >= this.length) {
+    let newFromIndex = fromIndex;
+
+    if (newFromIndex >= this.length) {
       return -1;
-    } else if (searchElement === '' || searchElement === undefined) {
-      return 1;
-    }
-
-    let newFromIndex;
-
-    if (fromIndex < 0) {
+    } else if (Math.abs(newFromIndex) > this.length) {
+      newFromIndex = 0;
+    } else if (fromIndex < 0) {
       newFromIndex = (this.length + fromIndex);
-    } else if (fromIndex >= 0) {
-      newFromIndex = fromIndex;
     }
-
-    let index;
 
     for (let i = newFromIndex; i < this.length; i++) {
       if (Number.isNaN(searchElement) === false) {
         if (this[i] === searchElement) {
-          index = i;
-          break;
+          return i;
         }
       } else if (Number.isNaN(searchElement)) {
         if (Number.isNaN(this[i])) {
-          index = i;
-          break;
+          return i;
         }
       }
     }
 
-    return index === undefined ? -1 : index;
+    return -1;
   };
 }
-// applyCustomIndexOf();
-// console.log(['11', undefined, 2, null, '11', NaN].indexOf2(NaN));
+
 module.exports = applyCustomIndexOf;
