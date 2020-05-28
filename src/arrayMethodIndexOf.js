@@ -6,50 +6,50 @@
  * also work for negative fromIndex handling -2 as a pre last element.
 */
 
-// function applyCustomIndexOf() {
-//   [].__proto__.indexOf2 = function(searchElement, fromIndex) {
+function applyCustomIndexOf() {
+  [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
 
-//     let founded = '';
+    let founded = [];
+    (fromIndex < 0) ? (fromIndex = this.length + fromIndex) : fromIndex;
+    if(fromIndex < 0) {fromIndex = 0};
 
-//     for(const i in this) {
-//       if(i >= fromIndex) {
-//         if(searchElement === this[i]) {
-//           founded = i;
-//           break;
-//         }
-//       }
-//     }
+    for(let i = fromIndex; i <= this.length; i++) {
+      if(searchElement === this[i]) {founded[0] = i; break};
+    }    
 
-//     if((founded) === '') {return -1}
-//     return founded;
 
-//   };
-// }
+
+    if (founded[0] === undefined) {founded[0] = -1}
+    return founded[0];
+
+  };
+}
 
 module.exports = applyCustomIndexOf;
 
 
 
-
+/*
 
 function iF (thisIs, searchElement, fromIndex = 0) {
-    let founded = '';
+    let founded = [];
+    (fromIndex < 0) ? (fromIndex = thisIs.length + fromIndex) : fromIndex;
+    if(fromIndex < 0) {fromIndex = 0};
+    console.log("iF -> thisIs.length", thisIs.length)
+    console.log("iF -> fromIndex", fromIndex)
 
-    for(const i in thisIs) {
-      if(i >= fromIndex) {
-        if(searchElement === thisIs[i]) {
-          founded = i;
-          break;
-        }
-      }
+    for(let i = fromIndex; i <= thisIs.length; i++) {
+      if(searchElement === thisIs[i]) {founded = i; break};
     }
-    console.log('=== ', founded);
 
-    if((founded) === '') {return -1}
+    console.log("iF -> founded", founded)
+    if (founded === []) {founded[0] = -1}
     return founded;
   }
 
 const  a = [ '11', undefined, NaN, null, '11', 44 ];
-console.log("if", iF(a, NaN, 0))
+console.log("if", iF(a, undefined, -999))
 
-console.log("i", a.indexOf(NaN, 0));
+console.log("i", a.indexOf(undefined, -999));
+
+// */
