@@ -21,15 +21,15 @@ function applyCustomIndexOf() {
 
     for (let i = searcher; i <= this.length; i++) {
       if (Object.is(searchElement, this[i])) {
-        founded.answer = i; break;
+        founded.index = i; break;
       }
     };
 
-    if (founded.answer === undefined) {
-      founded.answer = -1;
+    if (founded.index === undefined) {
+      founded.index = -1;
     };
 
-    return founded.answer;
+    return founded.index;
   };
 }
 
