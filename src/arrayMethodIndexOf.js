@@ -23,19 +23,17 @@ function applyCustomIndexOf() {
 
     let index;
 
-    if (Number.isNaN(searchElement)) {
-      for (let i = newFromIndex; i < this.length; i++) {
+    for (let i = newFromIndex; i < this.length; i++) {
+      if (Number.isNaN(searchElement) === false) {
+        if (this[i] === searchElement) {
+          index = i;
+          break;
+        }
+      } else if (Number.isNaN(searchElement)) {
         if (Number.isNaN(this[i])) {
           index = i;
           break;
         }
-      }
-    }
-
-    for (let i = newFromIndex; i < this.length; i++) {
-      if (this[i] === searchElement) {
-        index = i;
-        break;
       }
     }
 
