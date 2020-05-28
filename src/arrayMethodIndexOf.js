@@ -1,13 +1,16 @@
 'use strict';
 
-/**
- * Implement improved version of indexOf method. It should correctly search for
- * NaN and undefined and return -1 if searchElement is not given. It should
- * also work for negative fromIndex handling -2 as a pre last element.
- */
 function applyCustomIndexOf() {
-  [].__proto__.indexOf2 = function(searchElement, fromIndex) {
-    // write code here
+  [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
+    const startIndex = fromIndex < 0 ? this.length + fromIndex : fromIndex;
+
+    for (let i = startIndex < 0 ? 0 : startIndex; i < this.length; i++) {
+      if (Object.is(searchElement, this[i])) {
+        return i;
+      }
+    }
+
+    return -1;
   };
 }
 
