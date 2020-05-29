@@ -24,12 +24,7 @@ function applyCustomIndexOf() {
     }
 
     for (i; i < this.length; i++) {
-      if (this[i] === searchElement
-        || (this[i] === null && searchElement === null)) {
-        return i;
-      }
-
-      if (isNaN(this[i]) && isNaN(searchElement) && this[i] !== undefined) {
+      if (Object.is(this[i], searchElement)) {
         return i;
       }
     }
