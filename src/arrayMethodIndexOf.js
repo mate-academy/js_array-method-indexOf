@@ -8,28 +8,23 @@
 
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
-    const founded = {};
-    let searcher = fromIndex;
+    let startIndex = fromIndex;
 
-    if (searcher < 0) {
-      searcher = this.length + searcher;
+    if (startIndex < 0) {
+      startIndex = this.length + startIndex;
     }
 
-    if (searcher <= -1) {
-      searcher = 0;
+    if (startIndex <= -1) {
+      startIndex = 0;
     };
 
-    for (let i = searcher; i <= this.length; i++) {
+    for (let i = startIndex; i <= this.length; i++) {
       if (Object.is(searchElement, this[i])) {
-        founded.index = i; break;
+        return i;
       }
     };
 
-    if (founded.index === undefined) {
-      founded.index = -1;
-    };
-
-    return founded.index;
+    return -1;
   };
 }
 
