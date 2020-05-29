@@ -7,45 +7,23 @@
  */
 function applyCustomIndexOf() {
   [].__proto__.indexOf2 = function(searchElement, fromIndex = 0) {
+    let innerFromIndex = fromIndex;
+
     if (arguments.length === 0) {
       return 1;
-    }
-
-    if (!this.length) {
+    } else if (!this.length) {
       return -1;
     }
 
-    if (fromIndex >= 0) {
-      for (let i = fromIndex; i < this.length; i++) {
-        if (this[i] === searchElement) {
-          return i;
-        }
-      }
+    if (innerFromIndex < 0 && innerFromIndex > (-this.length)) {
+      innerFromIndex = this.length + innerFromIndex;
+    } else if (innerFromIndex < (-this.length)) {
+      innerFromIndex = 0;
     }
 
-    if (fromIndex < 0 && fromIndex > (-this.length)) {
-      for (let i = (this.length + fromIndex); i < this.length; i++) {
-        if (this[i] === searchElement) {
-          return i;
-        }
-      }
-    }
-
-    if (Number.isNaN(searchElement)) {
-      for (let i = 0; i < this.length; i++) {
-        if (Number.isNaN(this[i]) === Number.isNaN(searchElement)) {
-          return i;
-        }
-      }
-    }
-
-    if (fromIndex < (-this.length)) {
-      if (fromIndex < (-this.length)) {
-        for (let i = 0; i < this.length; i++) {
-          if (this[i] === searchElement) {
-            return i;
-          }
-        }
+    for (let i = innerFromIndex; i < this.length; i++) {
+      if (Object.is(this[i], searchElement)) {
+        return i;
       }
     }
 
