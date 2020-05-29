@@ -10,11 +10,9 @@ function applyCustomIndexOf() {
     let reassignedIndex = fromIndex;
 
     if (fromIndex < 0) {
-      (Math.abs(fromIndex) > this.length)
+      (Math.abs(reassignedIndex) > this.length)
         ? reassignedIndex = 0
-        : reassignedIndex = this.length + fromIndex;
-    } else if (fromIndex > this.length - 1) {
-      return -1;
+        : reassignedIndex += this.length;
     }
 
     for (let i = reassignedIndex; i < this.length; i++) {
