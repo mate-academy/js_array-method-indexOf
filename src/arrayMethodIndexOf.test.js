@@ -60,6 +60,11 @@ test(`should accept negative frontIndex`, () => {
     .toBe(4);
 });
 
+test(`should accept negative frontIndex in edge case`, () => {
+  expect(source.indexOf2(44, -1))
+    .toBe(5);
+});
+
 test(`should search from start for big negative frontIndex`, () => {
   expect(source.indexOf2('11', -999))
     .toBe(0);
