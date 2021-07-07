@@ -80,7 +80,7 @@ test(`should work correctly for NaN`, () => {
     .toBe(2);
 });
 
-test(`should work correctly for undefined`, () => {
+test.only(`should work correctly for undefined`, () => {
   expect(source.indexOf2(undefined))
     .toBe(1);
 });
